@@ -1,10 +1,10 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import prisma from "../lib/prisma";
 import Avatar from "../components/Avatar";
 
-export default function User(props): User {
+export default function User(props: InferGetServerSidePropsType<typeof getServerSideProps>): User {
   const eventTypes = props.eventTypes.map((type) => (
     <li key={type.id}>
       <Link href={`/${props.user.username}/${type.slug}`}>
@@ -35,7 +35,7 @@ export default function User(props): User {
         </div>
         <div className="bg-white shadow overflow-hidden rounded-md">
           <ul className="divide-y divide-gray-200">{eventTypes}</ul>
-          {eventTypes.length == 0 && (
+          {props.user.userType=="MENTOR" && eventTypes.length == 0 && (
             <div className="p-8 text-center text-gray-400">
               <h2 className="font-semibold text-3xl text-gray-600">Uh oh!</h2>
               <p className="max-w-md mx-auto">This user hasn&apos;t set up any event types yet.</p>
@@ -60,6 +60,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       bio: true,
       avatar: true,
       eventTypes: true,
+      userType:true
     },
   });
 
