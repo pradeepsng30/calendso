@@ -37,7 +37,7 @@ export default function Shell(props) {
       router.replace("/auth/login");
     }
   }
-  const isMentee = (session && session.user.userType=="MENTEE");
+  const isMentee = (session && session.user.isMentee);
   const hideHeader = props.hideHeader || isMentee;
 
   console.log("PPP hide header", props.hideHeader);

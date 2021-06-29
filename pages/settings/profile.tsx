@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { useRef, useState } from "react";
 import prisma from "../../lib/prisma";
@@ -7,11 +7,11 @@ import Shell from "../../components/Shell";
 import SettingsShell from "../../components/Settings";
 import Avatar from "../../components/Avatar";
 import { getSession } from "next-auth/client";
-import TimezoneSelect from "react-timezone-select";
+import TimezoneSelect, {i18nTimezones} from "react-timezone-select";
 import { UsernameInput } from "../../components/ui/UsernameInput";
 import ErrorAlert from "../../components/ui/alerts/Error";
 
-export default function Settings(props) {
+export default function Settings(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const usernameRef = useRef<HTMLInputElement>();
   const nameRef = useRef<HTMLInputElement>();
@@ -133,6 +133,9 @@ export default function Settings(props) {
                   <div className="mt-1">
                     <TimezoneSelect
                       id="timeZone"
+                      timezones={{...i18nTimezones,
+                        'Asia/Calcutta': 'India, Kolkata',
+                      }}
                       value={selectedTimeZone}
                       onChange={setSelectedTimeZone}
                       className="shadow-sm focus:ring-blue-500 focus:border-blue-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"

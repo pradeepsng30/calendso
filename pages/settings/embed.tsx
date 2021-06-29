@@ -9,8 +9,10 @@ import SettingsShell from '../../components/Settings';
 import Avatar from '../../components/Avatar';
 import { signIn, useSession, getSession } from 'next-auth/client';
 import TimezoneSelect from 'react-timezone-select';
+import { InferGetServerSidePropsType } from "next";
 
-export default function Embed(props) {
+export default function Embed(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    return null;
     const [ session, loading ] = useSession();
     const router = useRouter();
 

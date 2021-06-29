@@ -3,8 +3,10 @@ import Shell from '../../components/Shell';
 import SettingsShell from '../../components/Settings';
 import prisma from '../../lib/prisma';
 import {getSession, useSession} from 'next-auth/client';
+import { InferGetServerSidePropsType } from "next";
 
-export default function Billing(props) {
+export default function Billing(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  return null;
     const [ session, loading ] = useSession();
 
     if (loading) {
