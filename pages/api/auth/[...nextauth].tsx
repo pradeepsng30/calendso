@@ -36,7 +36,7 @@ export default NextAuth({
                     throw new Error('Incorrect password');
                 }
 
-                return {id: user.id, username: user.username, email: user.email, name: user.name, image: user.avatar};
+                return {id: user.id, username: user.username, email: user.email, name: user.name, image: user.avatar, userType: user.userType};
             }
         })
     ],
@@ -46,6 +46,7 @@ export default NextAuth({
             if (user?.username) {
                 token.id = user.id;
                 token.username = user.username;
+                token.userType = user.userType;
             }
             return token;
         },
@@ -53,6 +54,9 @@ export default NextAuth({
             session.user = session.user || {}
             session.user.id = token.id;
             session.user.username = token.username;
+            session.user.userType = token.userType;
+            session.user.isMentee = token.userType == "MENTEE";
+            session.user.isMentor = token.userType == "MENTOR";
             return session;
         },
     },

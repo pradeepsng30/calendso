@@ -1,17 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import prisma from '../lib/prisma';
-import Shell from '../components/Shell';
+import ShellPublic from '../components/ShellPublic';
 // import {getSession, useSession} from 'next-auth/client';
 // import {CheckIcon, ClockIcon, InformationCircleIcon} from '@heroicons/react/outline';
 // import DonateBanner from '../components/DonateBanner';
 // import { useState } from "react";
 import Avatar from '../components/Avatar';
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import { InferGetServerSidePropsType } from "next";
 
-export default function Mentors(props) {
+export default function Mentors(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
    
     return (
         <div>
@@ -20,7 +18,7 @@ export default function Mentors(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Shell heading="Mentors" hideHeader="true">
+            <ShellPublic heading="Mentors" hideHeader="true" noLogin="true">
 
                 <div className="md:grid grid-cols-3 gap-4">
                     <div className="col-span-2">
@@ -60,7 +58,7 @@ export default function Mentors(props) {
 
                 {/* <DonateBanner /> */}
 
-            </Shell>
+            </ShellPublic>
         </div>
     );
 }
@@ -74,7 +72,8 @@ export async function getServerSideProps(context) {
 
     // if (session) {
         users = await prisma.user.findMany({
-            where: { NOT: [{ username: null }] },
+            where: { NOT: [{ username: null }], 
+            userType: "MENTOR", },
             select: {
                 id: true,
                 username: true,

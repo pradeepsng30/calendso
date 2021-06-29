@@ -31,6 +31,8 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
 
     const email: string = e.target.email.value;
     const password: string = e.target.password.value;
+    const college: string = e.target.college.value;
+    const passYear: string = e.target.passYear.value;
 
     fetch('/api/auth/signup',
       {
@@ -38,6 +40,8 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
           username: e.target.username.value,
           password,
           email,
+          college,
+          passYear,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +62,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <Head>
-        <title>Sign up as Mentor</title>
+        <title>Sign up</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -76,7 +80,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
               </div>
               <div className="mb-2">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" id="email" placeholder="jdoe@example.com" disabled={!!props.email} readOnly={!!props.email} value={props.email} className="bg-gray-100 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+                <input type="email" name="email" id="email" placeholder="enter only intitute email address" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
@@ -87,12 +91,12 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                 <input type="password" name="passwordcheck" id="passwordcheck" required placeholder="•••••••••••••" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
-                <label htmlFor="college" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="text" name="college" id="college" placeholder="College or institute name" className="bg-gray-100 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+                <label htmlFor="college" className="block text-sm font-medium text-gray-700">College or institute name</label>
+                <input type="text" name="college" id="college" placeholder="NIT Trichy" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
-                <label htmlFor="passYear" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="number" name="passYear" id="passYear" placeholder="Pass Year" className="bg-gray-100 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+                <label htmlFor="passYear" className="block text-sm font-medium text-gray-700">Passing Year</label>
+                <input type="number" name="passYear" id="passYear" placeholder="2022" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
             </div>
             <div className="mt-3 sm:mt-4 flex">
@@ -109,42 +113,26 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
 }
 
 export async function getServerSideProps(ctx) {
-  if (!ctx.query.token) {
-    return {
-      notFound: true,
-    }
-  }
-  const verificationRequest = await prisma.verificationRequest.findUnique({
-    where: {
-      token: ctx.query.token,
-    }
-  });
 
-  // for now, disable if no verificationRequestToken given or token expired
-  if ( ! verificationRequest || verificationRequest.expires < new Date() ) {
-    return {
-      notFound: true,
-    }
-  }
 
-  const existingUser = await prisma.user.findFirst({
-    where: {
-      AND: [
-        {
-          email: verificationRequest.identifier
-        },
-        {
-          emailVerified: {
-            not: null,
-          },
-        }
-      ]
-    }
-  });
+  // const existingUser = await prisma.user.findFirst({
+  //   where: {
+  //     AND: [
+  //       {
+  //         email: verificationRequest.identifier
+  //       },
+  //       {
+  //         emailVerified: {
+  //           not: null,
+  //         },
+  //       }
+  //     ]
+  //   }
+  // });
 
-  if (existingUser) {
-    return { redirect: { permanent: false, destination: '/auth/login?callbackUrl=' + ctx.query.callbackUrl } };
-  }
+  // if (existingUser) {
+  //   return { redirect: { permanent: false, destination: '/auth/login?callbackUrl=' + ctx.query.callbackUrl } };
+  // }
 
-  return { props: { email: verificationRequest.identifier } };
+  return { props: {} };
 }

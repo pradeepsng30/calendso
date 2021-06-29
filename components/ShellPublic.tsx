@@ -5,7 +5,7 @@ import { signOut, useSession } from "next-auth/client";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { collectPageParameters, telemetryEventTypes, useTelemetry } from "../lib/telemetry";
 
-export default function Shell(props) {
+export default function ShellPublic(props) {
   const router = useRouter();
   const [session, loading] = useSession();
   const [profileDropdownExpanded, setProfileDropdownExpanded] = useState(false);
@@ -30,18 +30,16 @@ export default function Shell(props) {
     signOut({ redirect: false }).then(() => router.push("/auth/logout"));
   };
 
-  if (!loading && !session) {
-    if(props.noLogin){
+  // if (!loading && !session) {
+  //   if(props.noLogin){
 
-    }else {
-      router.replace("/auth/login");
-    }
-  }
-  const isMentee = (session && session.user.userType=="MENTEE");
-  const hideHeader = props.hideHeader || isMentee;
+  //   }else {
+  //     router.replace("/auth/login");
+  //   }
+  // }
 
   console.log("PPP hide header", props.hideHeader);
-  return session ? (
+  return (
     <div>
       <div className="bg-gradient-to-b from-blue-600 via-blue-600 to-blue-300 pb-32">
         <nav className="bg-blue-600">
@@ -53,76 +51,19 @@ export default function Shell(props) {
                     <img className="h-6" src="/calendso-white.svg" alt="Calendso" />
                   </div>
                   <div className="hidden md:block">
-                    {hideHeader?null:
+                    {props.hideHeader?null:
                     <div className="ml-10 flex items-baseline space-x-4">
-                      <Link href="/">
-                        <a
-                          className={
-                            router.pathname == "/"
-                              ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
-                              : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          }>
-                          Dashboard
-                        </a>
-                      </Link>
-                      <Link href="/bookings">
-                        <a
-                          className={
-                            router.pathname.startsWith("/bookings")
-                              ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
-                              : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          }>
-                          Bookings
-                        </a>
-                      </Link>
-                      <Link href="/availability">
-                        <a
-                          className={
-                            router.pathname.startsWith("/availability")
-                              ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
-                              : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          }>
-                          Availability
-                        </a>
-                      </Link>
-                      <Link href="/integrations">
-                        <a
-                          className={
-                            router.pathname.startsWith("/integrations")
-                              ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
-                              : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          }>
-                          Integrations
-                        </a>
-                      </Link>
-                      <Link href="/settings/profile">
-                        <a
-                          className={
-                            router.pathname.startsWith("/settings")
-                              ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
-                              : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          }>
-                          Settings
-                        </a>
-                      </Link>
-                    </div>
-                    }
-                    {
-                      isMentee &&(
-                        <div className="ml-10 flex items-baseline space-x-4">
-                          <Link href="/mentors">
+                      <Link href="/mentors">
                         <a
                           className={
                             router.pathname == "/mentors"
                               ? "bg-blue-500 transition-colors duration-300 ease-in-out text-white px-3 py-2 rounded-md text-sm font-medium"
                               : "text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                           }>
-                          Mentors
+                          Home
                         </a>
                       </Link>
-                          </div>
-
-                      )
+                    </div>
                     }
                   </div>
                   
@@ -130,7 +71,27 @@ export default function Shell(props) {
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
                     <div className="ml-3 relative">
-                      <div>
+                      { !!!session && (<div>
+                          <Link href="/auth/login">
+                            <button
+                              type="button"
+                              className="inline-flex max-w-xs text-white rounded-full flex items-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                              id="user-menu"
+                              aria-expanded="false"
+                              aria-haspopup="true">
+                              Login
+                            </button>
+                            </Link>
+                         
+                            <a  href="/auth/mentee_signup"
+                 className="ml-2 w-7/12 bg-white inline-flex justify-center text-sm text-gray-500 font-medium  border px-4 py-2 rounded btn cursor-pointer">Signup</a>
+                        </div>
+                        )
+                      }
+
+                    
+
+                      { session && (<div>
                         <button
                           onClick={toggleProfileDropdown}
                           type="button"
@@ -150,7 +111,8 @@ export default function Shell(props) {
                             alt=""
                           />
                         </button>
-                      </div>
+                      </div>)
+                      }
                       {profileDropdownExpanded && (
                         <div
                           className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
@@ -296,5 +258,5 @@ export default function Shell(props) {
         <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">{props.children}</div>
       </main>
     </div>
-  ) : null;
+  )
 }

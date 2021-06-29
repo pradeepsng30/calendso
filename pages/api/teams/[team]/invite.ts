@@ -49,6 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       {
         data: {
           email: req.body.usernameOrEmail,
+          userType: "MENTOR"
         }
       })
       .then( (invitee) => prisma.membership.create(

@@ -1,5 +1,6 @@
 import prisma from '../../../lib/prisma';
 import { hashPassword } from "../../../lib/auth";
+import { collectPageParameters } from '../../../lib/telemetry';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -7,7 +8,8 @@ export default async function handler(req, res) {
   }
 
   const data = req.body;
-  const { username, email, password } = data;
+  const { username, email, password , college} = data;
+  const passYear = parseInt(data.passYear);
 
   if (!username) {
     res.status(422).json({message: 'Invalid username'});
@@ -60,11 +62,15 @@ export default async function handler(req, res) {
       username,
       password: hashedPassword,
       emailVerified: new Date(Date.now()),
+      passYear: passYear,
+      college: college,
     },
     create: {
       username,
       email,
       password: hashedPassword,
+      passYear: passYear,
+      college: college,
     }
   });
 

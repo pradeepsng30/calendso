@@ -35,15 +35,15 @@ model Credential {
 
 model User {
   id            Int       @default(autoincrement()) @id
-  username      String?
+  username      String?   @unique
   name          String?
   email         String?   @unique
   emailVerified DateTime?
   password      String?
   bio           String?
   avatar        String?
-  timeZone      String @default("Europe/London")
-  weekStart     String? @default("Sunday")
+  timeZone      String @default("Asia/Calcutta")
+  weekStart     String? @default("Monday")
   startTime     Int @default(0)
   endTime       Int @default(1440)
   bufferTime    Int @default(0)
@@ -53,6 +53,10 @@ model User {
   teams         Membership[]
   bookings      Booking[]
   selectedCalendars      SelectedCalendar[]
+  userType      UserType @default(MENTEE)
+  college       String?
+  course        String?
+  passYear      Int?
   @@map(name: "users")
 }
 
@@ -150,3 +154,26 @@ model ResetPasswordRequest {
   expires    DateTime
 }
 
+
+// model Mentee {
+//   id            Int       @default(autoincrement()) @id
+//   username      String?   @unique
+//   name          String?
+//   email         String?   @unique
+//   emailVerified DateTime?
+//   password      String?
+//   bio           String?
+//   avatar        String?
+//   timeZone      String @default("Asia/Calcutta")
+//   weekStart     String? @default("Monday")
+//   createdDate   DateTime  @default(now()) @map(name: "created")
+//   college       String?
+//   course        String?
+//   passYear      Int?
+//   @@map(name: "mentees")
+// }
+
+enum UserType {
+  MENTOR
+  MENTEE
+}
