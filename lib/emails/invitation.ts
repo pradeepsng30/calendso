@@ -42,6 +42,8 @@ const html = (invitation: any) => {
     url = `${process.env.BASE_URL}/auth/signup?token=${invitation.token}&callbackUrl=${url}`;
   }
 
+  console.log("PPP invitation", url);
+
   return `
     <table style="width: 100%;">
     <tr>

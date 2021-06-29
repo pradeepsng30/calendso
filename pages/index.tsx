@@ -66,7 +66,7 @@ export default function Home(props) {
     return (
         <div>
             <Head>
-                <title>Calendso</title>
+                <title>Mentorship</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

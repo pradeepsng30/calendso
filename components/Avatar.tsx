@@ -7,7 +7,6 @@ export default function Avatar({ user, className = '', fallback }: {
     fallback?: JSX.Element;
 }) {
     const [gravatarAvailable, setGravatarAvailable] = useState(true);
-
     if (user.avatar) {
     return <img src={user.avatar} alt="Avatar" className={className} />;
     }

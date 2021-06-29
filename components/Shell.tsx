@@ -34,6 +34,7 @@ export default function Shell(props) {
     router.replace("/auth/login");
   }
 
+  console.log("PPP hide header", props.hideHeader);
   return session ? (
     <div>
       <div className="bg-gradient-to-b from-blue-600 via-blue-600 to-blue-300 pb-32">
@@ -46,6 +47,7 @@ export default function Shell(props) {
                     <img className="h-6" src="/calendso-white.svg" alt="Calendso" />
                   </div>
                   <div className="hidden md:block">
+                    {props.hideHeader?null:
                     <div className="ml-10 flex items-baseline space-x-4">
                       <Link href="/">
                         <a
@@ -98,7 +100,9 @@ export default function Shell(props) {
                         </a>
                       </Link>
                     </div>
+                    }
                   </div>
+                  
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-4 flex items-center md:ml-6">
