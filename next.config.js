@@ -1,6 +1,9 @@
 
 const withTM = require('next-transpile-modules')(['react-timezone-select']);
 
+console.log("PPP env BASE_URL", process.env.BASE_URL)
+console.log("PPP env PORT", process.env.PORT)
+console.log("PPP env DATABASE_URL", process.env.DATABASE_URL)
 // TODO: Revisit this later with getStaticProps in App
 if (process.env.NEXTAUTH_URL) {
     process.env.BASE_URL = process.env.NEXTAUTH_URL.replace('/api/auth', '');

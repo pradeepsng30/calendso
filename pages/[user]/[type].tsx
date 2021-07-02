@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import prisma from "../../lib/prisma";
@@ -15,6 +15,8 @@ import {
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import {useSession } from "next-auth/client";
+
 dayjs.extend(isSameOrBefore);
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -25,9 +27,27 @@ import TimeOptions from "../../components/booking/TimeOptions";
 import Avatar from "../../components/Avatar";
 import { timeZone } from "../../lib/clock";
 
-export default function Type(props): Type {
+export default function Type(props: InferGetServerSidePropsType<typeof getServerSideProps>): Type {
   // Get router variables
   const router = useRouter();
+  const [session, loading] = useSession();
+  if (!loading && !session) {
+
+
+    return (
+    <div><div className="sm:mx-auto sm:w-full sm:max-w-md">
+              <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900"><a href="/auth/login">Sign in to proceed</a></h2>
+        </div>
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-8 px-4 mx-2 shadow rounded-lg sm:px-10 ">
+        <a  href="/auth/login"
+                 className="ml-2  sm:w-full flex w-10/12 space-y-6 bg-blue-600 inline-flex justify-center text-sm text-white font-medium  border px-4 py-2 rounded btn cursor-pointer">Sign In</a>
+        </div>
+        </div>
+   </div>
+    );
+      router.replace("/auth/login");
+  }
   const { rescheduleUid } = router.query;
 
   // Initialise state

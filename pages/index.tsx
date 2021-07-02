@@ -5,13 +5,17 @@ import Shell from '../components/Shell';
 import {getSession, useSession} from 'next-auth/client';
 import {CheckIcon, ClockIcon, InformationCircleIcon} from '@heroicons/react/outline';
 import DonateBanner from '../components/DonateBanner';
+import { useRouter } from "next/router";
+import { InferGetServerSidePropsType } from "next";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Home(props) {
+export default function Home(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [session, loading] = useSession();
+    const router = useRouter();
+
     if (loading) {
         return <p className="text-gray-400">Loading...</p>;
     }
@@ -31,8 +35,11 @@ export default function Home(props) {
     ];
 
     let timeline = [];
-
     if (session) {
+        if(session.user.isMentee){
+             router.replace("/mentors");
+             return null;
+        }
         timeline = [
             {
               id: 1,
@@ -61,6 +68,8 @@ export default function Home(props) {
         ];
     } else {
         timeline = [];
+         router.replace("/mentors");
+         return null;
     }
 
     return (
@@ -309,6 +318,8 @@ export async function getServerSideProps(context) {
                 userId: session.user.id,
             }
         });
+    }{
+
     }
     return {
         props: { user, credentials, eventTypes, eventTypeCount: eventTypes.length, integrationCount: credentials.length }, // will be passed to the page component as props
