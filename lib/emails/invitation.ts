@@ -19,7 +19,7 @@ const sendEmail = (invitation: any, {
 
   nodemailer.createTransport(transport).sendMail(
     {
-      from: `Calendso <${from}>`,
+      from: `PickMyMentor <${from}>`,
       to: invitation.toEmail,
       subject: (
         invitation.from ? invitation.from + ' invited you' : 'You have been invited'
@@ -73,7 +73,7 @@ const html = (invitation: any) => {
           </td>
         </tr>
       </table><br />
-      If you prefer not to use "${invitation.toEmail}" as your Calendso email or already have a Calendso account, please request another invitation to that email.
+      If you prefer not to use "${invitation.toEmail}" as your PickMyMentor email or already have a PickMyMentor account, please request another invitation to that email.
       </td>
       </tr>
       </table>
