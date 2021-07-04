@@ -80,7 +80,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
               </div>
               <div className="mb-2">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" id="email" placeholder="enter only intitute email address" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+                <input type="email" name="email" id="email" placeholder="Enter only Institute email address" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
@@ -91,7 +91,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                 <input type="password" name="passwordcheck" id="passwordcheck" required placeholder="•••••••••••••" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
-                <label htmlFor="college" className="block text-sm font-medium text-gray-700">College or institute name</label>
+                <label htmlFor="college" className="block text-sm font-medium text-gray-700">College or Institute name</label>
                 <input type="text" name="college" id="college" placeholder="NIT Trichy" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
               <div className="mb-2">
