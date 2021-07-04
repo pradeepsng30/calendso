@@ -170,39 +170,7 @@ export default function ShellPublic(props) {
 
           {mobileMenuExpanded && (
             <div className="border-b border-blue-500 md:hidden bg-blue-600" id="mobile-menu">
-              <div className="px-2 py-3 space-y-1 sm:px-3">
-                <Link href="/">
-                  <a
-                    className={
-                      router.pathname == "/"
-                        ? "bg-blue-500 text-white block px-3 py-2 rounded-md text-base font-medium"
-                        : "text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    }>
-                    Dashboard
-                  </a>
-                </Link>
-                <Link href="/availability">
-                  <a
-                    className={
-                      router.pathname.startsWith("/availability")
-                        ? "bg-blue-500 text-white block px-3 py-2 rounded-md text-base font-medium"
-                        : "text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    }>
-                    Availability
-                  </a>
-                </Link>
-                <Link href="/integrations">
-                  <a
-                    className={
-                      router.pathname.startsWith("/integrations")
-                        ? "bg-blue-500 text-white block px-3 py-2 rounded-md text-base font-medium"
-                        : "text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    }>
-                    Integrations
-                  </a>
-                </Link>
-              </div>
-              <div className="pt-4 pb-3 border-t border-blue-500">
+             {session && ( <div className="pt-4 pb-3 border-t border-blue-500">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
                     <img
@@ -243,7 +211,35 @@ export default function ShellPublic(props) {
                     Sign out
                   </button>
                 </div>
-              </div>
+              </div>)
+              }
+
+
+            {!!!session && ( <div className="pt-4 pb-3 border-t border-blue-500">
+                <div className="mt-3 px-2 space-y-1">
+                  <Link href="/auth/login">
+                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-gray-700">
+                      Login
+                    </a>
+                  </Link>
+                  <Link href="/auth/mentee_signup">
+                    <a
+                      className={
+                        router.pathname.startsWith("/settings")
+                          ? "bg-blue-500 text-white block px-3 py-2 rounded-md text-base font-medium"
+                          : "text-gray-100 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                      }>
+                      Signup
+                    </a>
+                  </Link>
+                  {/* <button
+                    onClick={logoutHandler}
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-gray-700">
+                    Sign out
+                  </button> */}
+                </div>
+              </div>)
+              }
             </div>
           )}
         </nav>
