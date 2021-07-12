@@ -21,7 +21,7 @@ export default function User(props: InferGetServerSidePropsType<typeof getServer
   return (
     <div>
       <Head>
-        <title>{props.user.name || props.user.username} | Calendso</title>
+        <title>{props.user.name || props.user.username} | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

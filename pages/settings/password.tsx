@@ -41,7 +41,7 @@ export default function Settings(props) {
     return(
         <Shell heading="Password">
             <Head>
-                <title>Change Password | Calendso</title>
+                <title>Change Password | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <SettingsShell>
@@ -50,7 +50,7 @@ export default function Settings(props) {
                         <div>
                             <h2 className="text-lg leading-6 font-medium text-gray-900">Change Password</h2>
                             <p className="mt-1 text-sm text-gray-500">
-                                Change the password for your Calendso account.
+                                Change the password for your PickMyMentor account.
                             </p>
                         </div>
 

@@ -14,11 +14,12 @@ import { LocationType } from "../../lib/location";
 import Avatar from "../../components/Avatar";
 import Button from "../../components/ui/Button";
 import { EventTypeCustomInputType } from "../../lib/eventTypeInput";
+import { InferGetServerSidePropsType } from "next";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export default function Book(props: any): JSX.Element {
+export default function Book(props: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const router = useRouter();
   const { date, user, rescheduleUid } = router.query;
 
@@ -142,7 +143,7 @@ export default function Book(props: any): JSX.Element {
       <Head>
         <title>
           {rescheduleUid ? "Reschedule" : "Confirm"} your {props.eventType.title} with{" "}
-          {props.user.name || props.user.username} | Calendso
+          {props.user.name || props.user.username} | PickMyMentor
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -13,7 +13,7 @@ export default function Bookings({ bookings }) {
   return (
     <div>
       <Head>
-        <title>Bookings | Calendso</title>
+        <title>Bookings | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Shell heading="Bookings">

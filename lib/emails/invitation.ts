@@ -55,7 +55,7 @@ const html = (invitation: any) => {
       Hi,<br />
       <br />` +
     (invitation.from ? invitation.from + ' invited you' : 'You have been invited' )
-    + ` to join the team "${invitation.teamName}" in Calendso.<br />
+    + ` to join the team "${invitation.teamName}" in PickMyMentor.<br />
       <br />
       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
         <tr>

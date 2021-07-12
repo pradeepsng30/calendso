@@ -7,8 +7,9 @@ import {useRouter} from 'next/router';
 import {useRef, useState} from 'react';
 import {getSession, useSession} from 'next-auth/client';
 import {ClockIcon, PlusIcon} from '@heroicons/react/outline';
+import { InferGetServerSidePropsType } from "next";
 
-export default function Availability(props) {
+export default function Availability(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [ session, loading ] = useSession();
     const router = useRouter();
     const [showAddModal, setShowAddModal] = useState(false);
@@ -105,7 +106,7 @@ export default function Availability(props) {
     return(
         <div>
             <Head>
-                <title>Availability | Calendso</title>
+                <title>Availability | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Shell heading="Availability">

@@ -7,8 +7,9 @@ import {getSession, useSession} from 'next-auth/client';
 import {CalendarIcon, CheckCircleIcon, ChevronRightIcon, PlusIcon, XCircleIcon} from '@heroicons/react/solid';
 import {InformationCircleIcon} from '@heroicons/react/outline';
 import {Switch} from '@headlessui/react'
+import { InferGetServerSidePropsType } from "next";
 
-export default function Home({ integrations }) {
+export default function Home({ integrations }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [session, loading] = useSession();
     const [showAddModal, setShowAddModal] = useState(false);
     const [showSelectCalendarModal, setShowSelectCalendarModal] = useState(false);
@@ -81,7 +82,7 @@ export default function Home({ integrations }) {
     return (
         <div>
             <Head>
-                <title>Integrations | Calendso</title>
+                <title>Integrations | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

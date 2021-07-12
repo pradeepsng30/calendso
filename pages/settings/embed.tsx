@@ -23,7 +23,7 @@ export default function Embed(props: InferGetServerSidePropsType<typeof getServe
     return(
         <Shell heading="Embed">
             <Head>
-                <title>Embed | Calendso</title>
+                <title>Embed | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <SettingsShell>
@@ -31,7 +31,7 @@ export default function Embed(props: InferGetServerSidePropsType<typeof getServe
                     <div className="mb-6">
                         <h2 className="text-lg leading-6 font-medium text-gray-900">Iframe Embed</h2>
                         <p className="mt-1 text-sm text-gray-500">
-                            The easiest way to embed Calendso on your website.
+                            The easiest way to embed PickMyMentor on your website.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 space-x-4">
@@ -65,7 +65,7 @@ export default function Embed(props: InferGetServerSidePropsType<typeof getServe
                         </div>
                     </div>
                     <div className="my-6">
-                        <h2 className="text-lg leading-6 font-medium text-gray-900">Calendso API</h2>
+                        <h2 className="text-lg leading-6 font-medium text-gray-900">PickMyMentor API</h2>
                         <p className="mt-1 text-sm text-gray-500">
                             Leverage our API for full control and customizability.
                         </p>

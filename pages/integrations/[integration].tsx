@@ -5,8 +5,9 @@ import Shell from '../../components/Shell';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession, getSession } from 'next-auth/client';
+import { InferGetServerSidePropsType } from "next";
 
-export default function integration(props) {
+export default function integration(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter();
     const [session, loading] = useSession();
     const [showAPIKey, setShowAPIKey] = useState(false);
@@ -36,7 +37,7 @@ export default function integration(props) {
     return(
         <div>
             <Head>
-                <title>{getIntegrationName(props.integration.type)} | Integrations | Calendso</title>
+                <title>{getIntegrationName(props.integration.type)} | Integrations | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

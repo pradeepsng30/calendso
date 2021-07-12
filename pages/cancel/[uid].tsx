@@ -61,7 +61,7 @@ export default function Type(props) {
             <Head>
                 <title>
                     Cancel {props.booking.title} | {props.user.name || props.user.username} |
-                    Calendso
+                    PickMyMentor
                 </title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>

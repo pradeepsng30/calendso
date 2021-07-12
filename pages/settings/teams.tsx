@@ -48,7 +48,7 @@ export default function Teams(props) {
   return (
     <Shell heading="Teams">
       <Head>
-        <title>Teams | Calendso</title>
+        <title>Teams | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SettingsShell>

@@ -82,7 +82,7 @@ export default class EventOrganizerMail extends EventMail {
         filename: 'event.ics',
         content: this.getiCalEventAsString(),
       },
-      from: `Calendso <${this.getMailerOptions().from}>`,
+      from: `PickMyMentor <${this.getMailerOptions().from}>`,
       to: this.calEvent.organizer.email,
       subject: `New event: ${this.calEvent.attendees[0].name} - ${organizerStart.format('LT dddd, LL')} - ${this.calEvent.type}`,
       html: this.getHtmlRepresentation(),

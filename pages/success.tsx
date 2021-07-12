@@ -11,12 +11,13 @@ import toArray from 'dayjs/plugin/toArray';
 import timezone from 'dayjs/plugin/timezone';
 import {createEvent} from 'ics';
 import {getEventName} from "../lib/event";
+import { InferGetServerSidePropsType } from "next";
 
 dayjs.extend(utc);
 dayjs.extend(toArray);
 dayjs.extend(timezone);
 
-export default function Success(props) {
+export default function Success(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const router = useRouter();
     const {location, name} = router.query;
 
@@ -56,7 +57,7 @@ export default function Success(props) {
     return(
         <div>
             <Head>
-                <title>Booking Confirmed | {eventName} | Calendso</title>
+                <title>Booking Confirmed | {eventName} | PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="max-w-3xl mx-auto my-24">

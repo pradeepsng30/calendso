@@ -11,7 +11,7 @@ const sendEmail = ({ to, subject, text, html = null }): Promise<string | SentMes
 
     nodemailer.createTransport(transport).sendMail(
       {
-        from: `Calendso ${from}`,
+        from: `PickMyMentor ${from}`,
         to,
         subject,
         text,

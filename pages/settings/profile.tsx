@@ -74,7 +74,7 @@ export default function Settings(props: InferGetServerSidePropsType<typeof getSe
   return (
     <Shell heading="Profile">
       <Head>
-        <title>Profile | Calendso</title>
+        <title>Profile | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SettingsShell>

@@ -51,7 +51,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
     )
       .then(handleErrors)
       .then(
-        () => signIn('Calendso', { callbackUrl: (router.query.callbackUrl || '') as string })
+        () => signIn('PickMyMentor', { callbackUrl: (router.query.callbackUrl || '') as string })
       )
       .catch( (err) => {
         setHasErrors(true);
@@ -102,7 +102,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
             <div className="mt-3 sm:mt-4 flex">
               <input type="submit" value="Create Account"
                      className="btn btn-primary w-7/12 mr-2 inline-flex justify-center rounded-md border border-transparent cursor-pointer shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm" />
-              <a onClick={() => signIn('Calendso', { callbackUrl: (router.query.callbackUrl || '') as string })}
+              <a onClick={() => signIn('PickMyMentor', { callbackUrl: (router.query.callbackUrl || '') as string })}
                  className="w-5/12 inline-flex justify-center text-sm text-gray-500 font-medium  border px-4 py-2 rounded btn cursor-pointer">Login instead</a>
             </div>
           </form>

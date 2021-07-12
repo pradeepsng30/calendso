@@ -48,7 +48,7 @@ export default function ShellPublic(props) {
               <div className="flex items-center justify-between h-16 px-4 sm:px-0">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <img className="h-6" src="/calendso-white.svg" alt="Calendso" />
+                    <img className="h-6" src="/calendso-white.svg" alt="PickMyMentor" />
                   </div>
                   <div className="hidden md:block">
                     {props.hideHeader?null:

@@ -144,7 +144,7 @@ export default function Home(props: InferGetServerSidePropsType<typeof getServer
                             <div className="md:flex">
                                 <div className="md:w-1/2 self-center mb-8 md:mb-0">
                                     <h2 className="text-2xl font-semibold">Getting started</h2>
-                                    <p className="text-gray-600 text-sm">Steps you should take to get started with Calendso.</p>
+                                    <p className="text-gray-600 text-sm">Steps you should take to get started with PickMyMentor.</p>
                                 </div>
                                 <div className="md:w-1/2">
                                     <div className="flow-root">

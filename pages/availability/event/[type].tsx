@@ -137,12 +137,12 @@ export default function EventType(props: any): JSX.Element {
         );
       case LocationType.Phone:
         return (
-          <p className="text-sm">Calendso will ask your invitee to enter a phone number before scheduling.</p>
+          <p className="text-sm">PickMyMentor will ask your invitee to enter a phone number before scheduling.</p>
         );
       case LocationType.GoogleMeet:
-        return <p className="text-sm">Calendso will provide a Google Meet location.</p>;
+        return <p className="text-sm">PickMyMentor will provide a Google Meet location.</p>;
       case LocationType.Zoom:
-        return <p className="text-sm">Calendso will provide a Zoom meeting URL.</p>;
+        return <p className="text-sm">PickMyMentor will provide a Zoom meeting URL.</p>;
     }
     return null;
   };
@@ -207,7 +207,7 @@ export default function EventType(props: any): JSX.Element {
   return (
     <div>
       <Head>
-        <title>{props.eventType.title} | Event Type | Calendso</title>
+        <title>{props.eventType.title} | Event Type | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Shell heading={"Event Type - " + props.eventType.title}>
