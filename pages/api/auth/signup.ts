@@ -8,13 +8,20 @@ export default async function handler(req, res) {
   }
 
   const data = req.body;
-  const { username, email, password , college} = data;
+  console.log("signup data", data.email, data.username);
+  const { username, email, password , college, name} = data;
   const passYear = parseInt(data.passYear);
 
   if (!username) {
     res.status(422).json({message: 'Invalid username'});
     return;
   }
+
+  // if (!name) {
+  //   res.status(422).json({message: 'Invalid name'});
+  //   return;
+  // }
+
 
   if (!email || !email.includes('@')) {
     res.status(422).json({message: 'Invalid email'});
@@ -60,6 +67,7 @@ export default async function handler(req, res) {
     where: { email, },
     update: {
       username,
+      name,
       password: hashedPassword,
       emailVerified: new Date(Date.now()),
       passYear: passYear,
@@ -68,6 +76,7 @@ export default async function handler(req, res) {
     create: {
       username,
       email,
+      name,
       password: hashedPassword,
       passYear: passYear,
       college: college,

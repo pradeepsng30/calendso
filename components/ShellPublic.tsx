@@ -38,7 +38,6 @@ export default function ShellPublic(props) {
   //   }
   // }
 
-  console.log("PPP hide header", props.hideHeader);
   return (
     <div>
       <div className="bg-gradient-to-b from-blue-600 via-blue-600 to-blue-300 pb-32">

@@ -28,13 +28,16 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
     }
 
     const email: string = e.target.email.value;
+    const name: string = e.target.name.value;
     const password: string = e.target.password.value;
     const college: string = e.target.college.value;
     const passYear: string = e.target.passYear.value;
 
+    console.log("PPP 1 name", name)
     fetch("/api/auth/signup", {
       body: JSON.stringify({
         username: e.target.username.value,
+        name,
         password,
         email,
         college,
@@ -90,6 +93,18 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                 />
               </div>
               <div className="mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Pradeep Singh"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
+              </div>
+              <div className="mb-2">
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
@@ -123,7 +138,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                   type="text"
                   name="college"
                   id="college"
-                  placeholder="College or Institute name"
+                  placeholder="NIT Trichy"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
@@ -135,7 +150,7 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                   type="number"
                   name="passYear"
                   id="passYear"
-                  placeholder="Pass Year"
+                  placeholder="2017"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>

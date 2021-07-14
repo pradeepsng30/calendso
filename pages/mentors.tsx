@@ -82,7 +82,6 @@ export async function getServerSideProps(context) {
             }
         });
 
-       console.log("PPP users", users);
     // }
     return {
         props: { users }, // will be passed to the page component as props
