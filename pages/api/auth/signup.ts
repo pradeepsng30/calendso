@@ -9,13 +9,14 @@ export default async function handler(req, res) {
 
   const data = req.body;
   console.log("signup data", data.email, data.username);
-  const { username, email, password , college, name} = data;
+  let { username, email, password , college, name} = data;
   const passYear = parseInt(data.passYear);
 
   if (!username) {
     res.status(422).json({message: 'Invalid username'});
     return;
   }
+    username = username.toLowerCase();
 
   // if (!name) {
   //   res.status(422).json({message: 'Invalid name'});

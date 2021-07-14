@@ -38,7 +38,7 @@ export default function User(props: InferGetServerSidePropsType<typeof getServer
           {props.user.userType=="MENTOR" && eventTypes.length == 0 && (
             <div className="p-8 text-center text-gray-400">
               <h2 className="font-semibold text-3xl text-gray-600">Uh oh!</h2>
-              <p className="max-w-md mx-auto">This user hasn&apos;t set up any event types yet.</p>
+              <p className="max-w-md mx-auto">This user isn&apos;t available to accept any types of invitations yet.</p>
             </div>
           )}
         </div>
