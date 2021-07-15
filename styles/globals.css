@@ -136,3 +136,12 @@ body {
 #timeZone input:focus {
     box-shadow: none;
 }
+
+.gap-8{
+    gap: 2em;
+}
+
+.mx-10p{
+    margin-left: 8%;
+    margin-right: 8%;
+}

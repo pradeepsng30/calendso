@@ -20,40 +20,27 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
 
             <ShellPublic heading="Mentors" hideHeader="true" noLogin="true">
 
-                <div className="md:grid grid-cols-3 gap-4">
-                    <div className="col-span-2">
-                            <div>
-                                <div>
-                                    <div className="flow-root">
-                                        <ul className="-mb-8">
-                                            {props.users.map((user, _id) => (
-                                                    <div className="rounded-lg bg-white shadow">
-                                                        <div className="mt-8 bg-white shadow overflow-hidden rounded-md space-x-1">
+                <div className="md:grid grid-cols-3 gap-8 mx-10p">
+
+                {props.users.map((user, _id) => (
+                                                    <div className="rounded-lg bg-white shadow p-2">
                                                         <Link href={user.username} >
-                                                            <div className="relative flex pt-5 pb-2 px-6">
-                                                            <div className="h-12 w-12 rounded-full flex items-center justify-center ring-4 ring-white"> 
-                                                                    <Avatar user={user} className="relative rounded-full w-20 h-20" />
+                                                            <div className="">
+                                                            <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
+                                                                    <Avatar user={user} className="relative rounded-full w-40 h-40" />
                                                             </div>
-                                                            <div className="min-w-0 flex-1 flex justify-between space-x-4 px-6">
-                                                                <div>
+                                                            <div className="min-w-0 text-center px-6 mt-4">
                                                                     <p className="text-xl text-gray-700">
                                                                         {user.name}
                                                                     </p>
                                                                     <p className="text-gray-500">
-                                                                        {user.college}
+                                                                        {user.college} {user.passYear}
                                                                     </p>
-                                                                </div>
                                                             </div>
                                                             </div>
                                                         </Link>
                                                     </div>
-                                                    </div>
                                             ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
                 </div>
 
                 {/* <DonateBanner /> */}
@@ -73,7 +60,8 @@ export async function getServerSideProps(context) {
     // if (session) {
         users = await prisma.user.findMany({
             where: { NOT: [{ username: null }], 
-            userType: "MENTOR", },
+            userType: "MENTOR", 
+        },
             select: {
                 id: true,
                 username: true,
@@ -82,6 +70,9 @@ export async function getServerSideProps(context) {
                 college: true,
                 passYear:true,
                 avatar:true
+            },
+            orderBy:{
+                id:'asc'
             }
         });
 
