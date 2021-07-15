@@ -40,7 +40,6 @@ export default function Shell(props) {
   const isMentee = (session && session.user.isMentee);
   const hideHeader = props.hideHeader || isMentee;
 
-  console.log("PPP hide header", props.hideHeader);
   return session ? (
     <div>
       <div className="bg-gradient-to-b from-blue-600 via-blue-600 to-blue-300 pb-32">

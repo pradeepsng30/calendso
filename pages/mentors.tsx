@@ -31,16 +31,16 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
                                                         <div className="mt-8 bg-white shadow overflow-hidden rounded-md space-x-1">
                                                         <Link href={user.username} >
                                                             <div className="relative flex pt-5 pb-2 px-6">
-                                                            <span className="h-12 w-12 rounded-full flex items-center justify-center ring-4 ring-white"> 
-                                                                    <Avatar user={user} />
-                                                            </span>
-                                                            <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4 px-6">
+                                                            <div className="h-12 w-12 rounded-full flex items-center justify-center ring-4 ring-white"> 
+                                                                    <Avatar user={user} className="relative rounded-full w-20 h-20" />
+                                                            </div>
+                                                            <div className="min-w-0 flex-1 flex justify-between space-x-4 px-6">
                                                                 <div>
-                                                                    <p className="text-sm text-gray-500">
-                                    
-                                                                            <a className="font-medium text-gray-900">
-                                                                                {user.name}
-                                                                            </a>
+                                                                    <p className="text-xl text-gray-700">
+                                                                        {user.name}
+                                                                    </p>
+                                                                    <p className="text-gray-500">
+                                                                        {user.college}
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -78,7 +78,10 @@ export async function getServerSideProps(context) {
                 id: true,
                 username: true,
                 name:true,
-                email:true
+                email:true,
+                college: true,
+                passYear:true,
+                avatar:true
             }
         });
 
