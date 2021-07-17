@@ -14,7 +14,7 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
     return (
         <div>
             <Head>
-                <title>Mentorship</title>
+                <title>PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -43,7 +43,6 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
                                             ))}
                 </div>
 
-                {/* <DonateBanner /> */}
 
             </ShellPublic>
         </div>

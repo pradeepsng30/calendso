@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import {createTelemetryClient, TelemetryProvider} from '../lib/telemetry';
 import { Provider } from 'next-auth/client';
+import DonateBanner from '../components/DonateBanner';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }) {
         <Provider session={pageProps.session}>
             <Component {...pageProps} />
         </Provider>
+        <DonateBanner/>
       </TelemetryProvider>
   );
 }
