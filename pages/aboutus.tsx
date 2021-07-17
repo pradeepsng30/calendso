@@ -50,11 +50,11 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                            {/* <p className="text-2xl text-blue-700">
                             Connect with us 
                         </p>              */}
-                        <a href="#" className="fa fa-linkedin"></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/pickmymentor/" className="fa fa-linkedin"></a>
                         <br/>
-                        <a href="#" className="fa fa-instagram"></a>
+                        <a target="_blank" href="https://www.instagram.com/pickmymentor/" className="fa fa-instagram"></a>
                         <br/>
-                        <a href="#" className="fa fa-youtube"></a>
+                        {/* <a target="_blank" href="https://youtube.com/channel/UCWEjRZbv44ucNBN-s2Iyprw" className="fa fa-youtube"></a> */}
 
                         </div>
                 </div>
