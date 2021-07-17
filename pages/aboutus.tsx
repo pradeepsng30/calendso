@@ -26,7 +26,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                         <div className="rounded-lg bg-white shadow col-span-2  px-5 py-6 ">
        
                                         <p className="text-xl text-gray-600">
-                                            PickMyMentor is a movement to bridge that gap between the students and the professional world. The aim is to educate budding professionals so that they can make informed choices and create plans to achieve their goals.
+                                            PickMyMentor is a movement to bridge the gap between the students and the professional world. The aim is to educate budding professionals so that they can make informed choices and create plans to achieve their goals.
                                         </p>
                                         <br/>
                                         <p className="text-xl text-gray-600">
@@ -34,7 +34,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                          </p>
                                          <br/>
                                         <p className="text-xl text-gray-600">
-                                            Bringing career hacks and wisdom from ‘Alumni’– to students, graduates, and upcoming professionals, we bring them closer by facilitating 1-1 mentorships sessions on various topics like -Jobs in a different sector, Higher studies within, and outside the country. We believe A mentor can help not only discuss ideas to improve focus but the mentorship itself can incite a certain drive in mentees to do better.                                         
+                                            Bringing career hacks and wisdom from ‘Alumni’– to students, graduates, and upcoming professionals, we bring them closer by facilitating 1-1 mentorships sessions on various topics like -Jobs in a different sector, Higher studies - within, and outside the country. We believe a mentor can help not only discuss ideas to improve focus but the mentorship itself can incite a certain drive in mentees to do better.                                         
                                         </p>
                         </div>
                         <div className="rounded-lg bg-white shadow col-span-1  px-5 py-6 items-center justify-center text-center">
@@ -42,7 +42,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                         <p className="text-2xl text-blue-700">
                             Write to us 
                         </p>
-                        <a href="mailto:support@pickmymentor.in">support@pickmymentor.in</a>
+                        <a target="_blank" href="mailto:support@pickmymentor.in">support@pickmymentor.in</a>
 
                            <br/>
                            <br/>
