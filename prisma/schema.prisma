@@ -57,6 +57,8 @@ model User {
   college       String?
   course        String?
   passYear      Int?
+  company       String?
+  title         String?
   @@map(name: "users")
 }
 

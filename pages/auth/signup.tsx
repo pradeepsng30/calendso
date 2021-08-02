@@ -32,6 +32,9 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
     const password: string = e.target.password.value;
     const college: string = e.target.college.value;
     const passYear: string = e.target.passYear.value;
+    const title: string = e.target.title.value;
+    const company: string = e.target.company.value;
+    const course: string = e.target.course.value;
 
     console.log("PPP 1 name", name)
     fetch("/api/auth/signup", {
@@ -41,6 +44,9 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
         password,
         email,
         college,
+        course,
+        title,
+        company,
         passYear,
       }),
       headers: {
@@ -143,6 +149,10 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                 />
               </div>
               <div className="mb-2">
+                <label htmlFor="course" className="block text-sm font-medium text-gray-700">Department</label>
+                <input type="text" name="course" id="course" placeholder="CSE" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+              </div>
+              <div className="mb-2">
                 <label htmlFor="passYear" className="block text-sm font-medium text-gray-700">
                   Passing Year
                 </label>
@@ -153,6 +163,15 @@ export default function Signup(props: InferGetServerSidePropsType<typeof getServ
                   placeholder="2017"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
+              </div>
+
+              <div className="mb-2">
+                <label htmlFor="title" className="block text-sm font-medium text-gray-700">Current Job Position</label>
+                <input type="text" name="title" id="title" placeholder="Software Engineer" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
+              </div>
+              <div className="mb-2">
+                <label htmlFor="company" className="block text-sm font-medium text-gray-700">Current organisation/company</label>
+                <input type="text" name="company" id="company" placeholder="PayPal" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  />
               </div>
             </div>
             <div className="mt-3 sm:mt-4 flex">

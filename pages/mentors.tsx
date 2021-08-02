@@ -33,8 +33,12 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
                                                                     <p className="text-xl text-gray-700">
                                                                         {user.name}
                                                                     </p>
+                                                        
                                                                     <p className="text-gray-500">
-                                                                        {user.college} {user.passYear}
+                                                                        {user.title} @ {user.company}
+                                                                    </p>
+                                                                    <p className="text-gray-500">
+                                                                        {user.college} {user.course} {user.passYear}
                                                                     </p>
                                                             </div>
                                                             </div>
@@ -67,6 +71,9 @@ export async function getServerSideProps(context) {
                 name:true,
                 email:true,
                 college: true,
+                course: true,
+                title: true,
+                company: true,
                 passYear:true,
                 avatar:true
             },

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Calendso API
+  title: PickMyMentor API
   description: The open source Calendly alternative.
   contact:
     name: Support

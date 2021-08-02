@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const data = req.body;
   console.log("signup data", data.email, data.username);
-  let { username, email, password , college, name} = data;
+  let { username, email, password , college, name, course, title, company } = data;
   const passYear = parseInt(data.passYear);
 
   if (!username) {
@@ -73,6 +73,9 @@ export default async function handler(req, res) {
       emailVerified: new Date(Date.now()),
       passYear: passYear,
       college: college,
+      course: course,
+      title: title,
+      company: company,
     },
     create: {
       username,
@@ -81,6 +84,9 @@ export default async function handler(req, res) {
       password: hashedPassword,
       passYear: passYear,
       college: college,
+      course: course,
+      title: title,
+      company: company,
     }
   });
 
