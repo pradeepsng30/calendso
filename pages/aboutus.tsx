@@ -95,7 +95,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                                                     </p>
                                                         
                                                                     <p className="text-gray-500">
-                                                                        Co-Founder
+                                                                        Founder
                                                                     </p>
                                                                     {/* <p className="text-gray-500">
                                                                     </p> */}
@@ -104,7 +104,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                                         </Link>
                                                         <br/>
                                                         <br/>
-                                                        <Link href="https://www.linkedin.com/in/jai-bansal-056589102/" >
+                                                        <Link href="https://www.linkedin.com/in/mahesh-yogi-58251a91/" >
                                                             <div className="">
                                                             <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
                                                                     <img src="https://media-exp1.licdn.com/dms/image/C5103AQH7bhUOF5hk-A/profile-displayphoto-shrink_200_200/0/1577101183801?e=1633564800&v=beta&t=MkAAqyCnphplBWFtoTfi3R_jaSCsi7twXh18qrxpoT0"
@@ -123,7 +123,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                                             </div>
                                                         </Link>
                                                         <br/>
-                                                        <Link href="https://www.linkedin.com/in/jai-bansal-056589102/" >
+                                                        <Link href="https://www.linkedin.com/in/pradeepsng30/" >
                                                             <div className="">
                                                             <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
                                                                     <img src="https://media-exp1.licdn.com/dms/image/C5103AQHBlfufuz1mSg/profile-displayphoto-shrink_400_400/0/1521040737592?e=1633564800&v=beta&t=TiMQ4VjS43P5qM7S2e1crN6j9mr2eGkw14wdRz2B1YA"
