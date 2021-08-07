@@ -75,6 +75,9 @@ export default function Home(props: InferGetServerSidePropsType<typeof getServer
     return (
         <div>
             <Head>
+            <meta name="description" 
+            content="movement to bridge the gap between the students and the professional world. Founder - Jai Bansal">
+            </meta>   
                 <title>Mentorship</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>

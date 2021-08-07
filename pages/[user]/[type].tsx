@@ -146,13 +146,13 @@ export default function Type(props: InferGetServerSidePropsType<typeof getServer
         <meta property="og:url" content="https://calendso/" />
         <meta property="og:title" content={"Meet " + (props.user.name || props.user.username)  + " via PickMyMentor"}/>
         <meta property="og:description" content={props.eventType.description}/>
-        <meta property="og:image" content={"https://og-image-one-pi.vercel.app/" + encodeURIComponent("Meet **" + (props.user.name || props.user.username) + "** <br>" + props.eventType.description).replace(/'/g, "%27") + ".png?md=1&images=https%3A%2F%2Fcalendso.com%2Fcalendso-logo-white.svg&images=" + encodeURIComponent(props.user.avatar)} />
+        <meta property="og:image" content={"https://og-image-one-pi.vercel.app/" + encodeURIComponent("Meet **" + (props.user.name || props.user.username) + "** <br>" + props.eventType.description).replace(/'/g, "%27") + ".png?md=1&images=https%3A%2F%2Fcalendso.com%2Fpmm_logo.png&images=" + encodeURIComponent(props.user.avatar)} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://calendso/" /> 
         <meta property="twitter:title" content={"Meet " + (props.user.name || props.user.username)  + " via PickMyMentor"} />
         <meta property="twitter:description" content={props.eventType.description} />
-        <meta property="twitter:image" content={"https://og-image-one-pi.vercel.app/" + encodeURIComponent("Meet **" + (props.user.name || props.user.username) + "** <br>" + props.eventType.description).replace(/'/g, "%27") + ".png?md=1&images=https%3A%2F%2Fcalendso.com%2Fcalendso-logo-white.svg&images=" + encodeURIComponent(props.user.avatar)} /> 
+        <meta property="twitter:image" content={"https://og-image-one-pi.vercel.app/" + encodeURIComponent("Meet **" + (props.user.name || props.user.username) + "** <br>" + props.eventType.description).replace(/'/g, "%27") + ".png?md=1&images=https%3A%2F%2Fcalendso.com%2Fpm,m_logo.png&images=" + encodeURIComponent(props.user.avatar)} /> 
             
       </Head>
       <main

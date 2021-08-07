@@ -14,6 +14,10 @@ export default function Mentors(props: InferGetServerSidePropsType<typeof getSer
     return (
         <div>
             <Head>
+
+                        <meta name="description" 
+            content="movement to bridge the gap between the students and the professional world. Founder - Jai Bansal">
+            </meta>   
                 <title>PickMyMentor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>

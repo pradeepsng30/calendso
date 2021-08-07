@@ -21,6 +21,9 @@ export default function User(props: InferGetServerSidePropsType<typeof getServer
   return (
     <div>
       <Head>
+      <meta name="description" 
+            content="movement to bridge the gap between the students and the professional world. Founder - Jai Bansal">
+            </meta>   
         <title>{props.user.name || props.user.username} | PickMyMentor</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
