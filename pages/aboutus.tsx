@@ -75,8 +75,6 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
 
 
 
-
-
                          </div>
                         <div className="rounded-lg bg-white shadow col-span-1  px-5 py-6 justify-center text-center">
                             <p className="text-2xl text-blue-700">
