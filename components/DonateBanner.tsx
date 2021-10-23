@@ -1,3 +1,29 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+
+ //
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBIDqQ5lQQYZd8vw22PcebycblwfaHGoxU",
+  authDomain: "pickmymentor.firebaseapp.com",
+  projectId: "pickmymentor",
+  storageBucket: "pickmymentor.appspot.com",
+  messagingSenderId: "511338852678",
+  appId: "1:511338852678:web:58ccc68a6c0584470bb547",
+  measurementId: "G-GHC7TCCD62"
+};
+
+// Initialize Firebase
+if(typeof window !== "undefined"){
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+}
+
+
 export default function DonateBanner() {
 
 
@@ -11,12 +37,12 @@ export default function DonateBanner() {
               <div className="w-0 flex-1 flex items-center">
                 <p className="ml-3 text-white truncate text-sm">
                   <span className="hidden md:inline">
-                  © 2021 PickMyMentor, all rights reserved
+                    © 2021 PickMyMentor, all rights reserved
                   </span>
                 </p>
               </div>
 
-              
+
               <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
                 <a
                   href="/"
@@ -24,7 +50,7 @@ export default function DonateBanner() {
                 >
                   Home
                 </a>
-                
+
               </div>
               <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
                 <a
@@ -33,7 +59,7 @@ export default function DonateBanner() {
                 >
                   About us
                 </a>
-                
+
               </div>
             </div>
           </div>

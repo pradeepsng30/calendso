@@ -142,8 +142,8 @@ body {
 }
 
 .mx-10p{
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .fa {
@@ -186,5 +186,14 @@ body {
     /* margin: ; */
     padding: 1em;
   }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.col-span-3 {
+    grid-column: span 3 / span 3;
+}
+.text-right {
+    text-align: right;
+}
   
   

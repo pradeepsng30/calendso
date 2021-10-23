@@ -84,7 +84,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                             <Link href="https://www.linkedin.com/in/jai-bansal-056589102/" >
                                                             <div className="">
                                                             <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
-                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQFF2_zDXuW73g/profile-displayphoto-shrink_400_400/0/1517042262365?e=1633564800&v=beta&t=Gmo0AvxiX9Ucua5kW1GKnqxllIivPzQUCpfSeCVqgHs"
+                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQFF2_zDXuW73g/profile-displayphoto-shrink_400_400/0/1517042262365?e=1640217600&v=beta&t=aIzgU2afm0ffeqAShHIOoSpSwdRMRq8kppVGrm7Llmk"
                                                                      className="relative rounded-full w-30 h-30" />
                                                             </div>
                                                             <div className="min-w-0 text-center px-6 mt-4">
@@ -105,7 +105,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                                         <Link href="https://www.linkedin.com/in/mahesh-yogi-58251a91/" >
                                                             <div className="">
                                                             <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
-                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5103AQH7bhUOF5hk-A/profile-displayphoto-shrink_200_200/0/1577101183801?e=1633564800&v=beta&t=MkAAqyCnphplBWFtoTfi3R_jaSCsi7twXh18qrxpoT0"
+                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5103AQH7bhUOF5hk-A/profile-displayphoto-shrink_400_400/0/1577101183801?e=1640217600&v=beta&t=78D8sUNLEs88CN3nKt2NHITT-lw9URCYXAazEKxty_Q"
                                                                      className="relative rounded-full w-30 h-30" />
                                                             </div>
                                                             <div className="min-w-0 text-center px-6 mt-4">
@@ -124,7 +124,7 @@ export default function AboutUs(props: InferGetServerSidePropsType<typeof getSer
                                                         <Link href="https://www.linkedin.com/in/pradeepsng30/" >
                                                             <div className="">
                                                             <div className="rounded-full flex items-center justify-center ring-4 ring-white"> 
-                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5103AQHBlfufuz1mSg/profile-displayphoto-shrink_400_400/0/1521040737592?e=1633564800&v=beta&t=TiMQ4VjS43P5qM7S2e1crN6j9mr2eGkw14wdRz2B1YA"
+                                                                    <img src="https://media-exp1.licdn.com/dms/image/C5103AQHBlfufuz1mSg/profile-displayphoto-shrink_400_400/0/1521040737592?e=1640217600&v=beta&t=-X33z21rB2hzTuyVtTVb6HFsgGD2gxHkrF1fwV-J73o"
                                                                      className="relative rounded-full w-30 h-30" />
                                                             </div>
                                                             <div className="min-w-0 text-center px-6 mt-4">

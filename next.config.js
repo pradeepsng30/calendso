@@ -31,6 +31,11 @@ if (process.env.GOOGLE_API_CREDENTIALS && ! validJson(process.env.GOOGLE_API_CRE
     console.warn('\x1b[33mwarn', '\x1b[0m', "- Disabled 'Google Calendar' integration. Reason: Invalid value for GOOGLE_API_CREDENTIALS environment variable. When set, this value needs to contain valid JSON like {\"web\":{\"client_id\":\"<clid>\",\"client_secret\":\"<secret>\",\"redirect_uris\":[\"<yourhost>/api/integrations/googlecalendar/callback>\"]}. You can download this JSON from your OAuth Client @ https://console.cloud.google.com/apis/credentials.");
 }
 
+process.on('uncaughtException', function (err) {
+  console.error(err.stack);
+  console.log("Node NOT Exiting...");
+});
+
 module.exports = withTM({
   future: {
     webpack5: true,
